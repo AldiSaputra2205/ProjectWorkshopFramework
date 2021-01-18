@@ -29,7 +29,7 @@ exports.findAll = (req, res) => {
     ? { nama: { $regex: new RegExp(nama), $options: "i" } }
     : {};
 
-  Fasilitas.find(condition)
+  Fasilitas.find(condition).populate('id_kategori')
     .then((data) => {
       res.send(data);
     })

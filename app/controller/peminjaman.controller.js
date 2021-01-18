@@ -28,7 +28,7 @@ exports.findAll = (req, res) => {
     ? { nama: { $regex: new RegExp(nama), $options: "i" } }
     : {};
 
-  Peminjaman.find(condition)
+  Peminjaman.find(condition).populate('id_peminjam').populate('id_fasilitas')
     .then((data) => {
       res.send(data);
     })

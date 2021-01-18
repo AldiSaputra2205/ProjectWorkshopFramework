@@ -1,5 +1,5 @@
 module.exports = (mongoose) => {
-    const objectId = mongoose.Schema.Types.ObjectId;
+    const { Schema } = require("mongoose");
     const Fasilitas = mongoose.model(
       "fasilitas",
       mongoose.Schema(
@@ -9,9 +9,9 @@ module.exports = (mongoose) => {
           informasi: String,
           jumlah: String,
           id_kategori: {
-            type: objectId,
-            ref: 'kategoris',
-          },
+            type: Schema.Types.ObjectId,
+            ref: 'kategori',
+        },
         },
         { timestamps: true }
       )

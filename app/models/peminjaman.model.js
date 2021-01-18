@@ -1,19 +1,19 @@
 module.exports = (mongoose) => {
-    const objectId = mongoose.Schema.Types.ObjectId;
+  const { Schema } = require("mongoose");
     const Peminjaman = mongoose.model(
       "peminjaman",
       mongoose.Schema(
         {
           id_peminjam: {
-            type: objectId,
-            ref: 'peminjams',
-          },
+            type: Schema.Types.ObjectId,
+            ref: 'peminjam',
+        },
           tgl: String,
           kegiatan: String,
           id_fasilitas: {
-            type: objectId,
-            ref: 'fasilitass',
-          },
+            type: Schema.Types.ObjectId,
+            ref: 'fasilitas',
+        },
         },
         { timestamps: true }
       )
