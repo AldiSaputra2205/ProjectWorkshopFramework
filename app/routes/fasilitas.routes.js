@@ -47,7 +47,7 @@ module.exports = (app) => {
   
     router.get("/:id", fasilitass.findOne);
   
-    router.put("/:id", fasilitass.update);
+    router.put("/:id", upload.any(), fasilitass.update);
   
     router.delete("/:id", fasilitass.delete);
   

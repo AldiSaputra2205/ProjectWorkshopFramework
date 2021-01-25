@@ -55,8 +55,17 @@ exports.findOne = (req, res) => {
 
 exports.update = (req, res) => {
   const id = req.params.id;
+  const fasilitas2 = {
+    nama: req.body.nama,
+    foto: req.files[0].filename,
+    informasi: req.body.informasi,
+    jumlah: req.body.jumlah,
+    id_kategori: req.body.id_kategori,
+  };
+  // console.log(req.body.nama);
+  // console.log(fasilitas)
 
-  Fasilitas.findByIdAndUpdate(id, req.body, { useFindAndModify: false })
+  Fasilitas.findByIdAndUpdate(id, fasilitas2, { useFindAndModify: false })
     .then((data) => {
       if (!data) {
         res.status(404).send({
